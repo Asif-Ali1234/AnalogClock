@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Analog Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+            <div class="hand hours" id="hourhand"></div>
+            <div class="hand minutes" id="minutehand"></div>
+            <div class="hand seconds" id="secondhand"></div>
+        </div>
+    </div>
+    <script>
+        const deg=6
+        const h=document.getElementById('hourhand')
+        const m=document.getElementById('minutehand')
+        const s=document.getElementById('secondhand')
+
+
+        setInterval(() => {
+            var date= new Date()
+            let hh=date.getHours()*30
+            let mm=date.getMinutes()*deg
+            let ss=date.getSeconds()*deg
+            
+            h.style.transform=`rotateZ(${(hh)+(mm/12)}deg)`
+            m.style.transform=`rotateZ(${mm}deg)`
+            s.style.transform=`rotateZ(${ss}deg)`
+        })
+    </script>
+</body>
+</html>
